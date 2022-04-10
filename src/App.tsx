@@ -32,7 +32,7 @@ const App = () => {
   // Granadanet Increment/Decrement contract
   // const contractAddress: string = "KT1K3XVNzsmur7VRgY8CAHPUENaErzzEpe4e";
   // Hangzhounet Increment/Decrement contract
-  const contractAddress: string = "KT1WiPWNcBMcXJButkkvroRGkzs45n3iZ13c";
+  const contractAddress: string = "KT1Q2fq3th9ox7uhqaACNkHrhtug5XqHjUZK";
 
   const generateQrCode = (): { __html: string } => {
     const qr = qrcode(0, "L");
