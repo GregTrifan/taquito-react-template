@@ -2,6 +2,7 @@ type storage = int
 type parameter =
   Increment of int
 | Decrement of int
+| Reset
  
 type return = operation list * storage
  
@@ -12,4 +13,5 @@ let main (p, s : parameter * storage) : return =
  ([] : operation list), 
  (match p with
    Increment n -> add (n, s)
- | Decrement n -> sub (n, s))
+ | Decrement n -> sub (n, s)
+ | Reset () -> 0)
