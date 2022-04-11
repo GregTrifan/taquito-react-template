@@ -1,17 +1,22 @@
-type storage = int
+type storage = int;
+
 type parameter =
-  Increment of int
-| Decrement of int
-| Reset
- 
-type return = operation list * storage
- 
-let add (n, s : int * storage) : storage = n + s
-let sub (n, s : int * storage) : storage = n - s
- 
-let main (p, s : parameter * storage) : return =
- ([] : operation list), 
- (match p with
-   Increment n -> add (n, s)
- | Decrement n -> sub (n, s)
- | Reset () -> 0)
+  Increment (int)
+| Decrement (int)
+| Reset;
+
+type return = (list (operation), storage);
+
+// Two entrypoints
+let add = ((store, delta) : (storage, int)) : storage => store + delta;
+let sub = ((store, delta) : (storage, int)) : storage => store - delta;
+
+/* Main access point that dispatches to the entrypoints according to
+   the smart contract parameter. */
+let main = ((action, store) : (parameter, storage)) : return => {
+ (([] : list (operation)),    // No operations
+ (switch (action) {
+  | Increment (n) => add ((store, n))
+  | Decrement (n) => sub ((store, n))
+  | Reset         => 0}))
+};
