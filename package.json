@@ -44,6 +44,7 @@
     ]
   },
   "devDependencies": {
+    "@taqueria/plugin-flextesa": "^0.2.0",
     "@taqueria/plugin-ligo": "^0.2.0"
   }
 }

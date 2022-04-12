@@ -2,11 +2,23 @@
 {
     "build": "a1f2b52",
     "configHash": {
-        "value": "857b762eb677a39a362dcb5d1660d8ad6ef4e40a2d74bca3a76937fa9c52f07a"
+        "value": "5b64be3a531a9b6f3b50d10e0023d00f232c0c9d914d23e2293f1f7c4021d040"
     },
     "tasks": {
         "compile": {
             "name": "@taqueria/plugin-ligo",
+            "type": "npm"
+        },
+        "start sandbox": {
+            "name": "@taqueria/plugin-flextesa",
+            "type": "npm"
+        },
+        "stop sandbox": {
+            "name": "@taqueria/plugin-flextesa",
+            "type": "npm"
+        },
+        "list accounts": {
+            "name": "@taqueria/plugin-flextesa",
             "type": "npm"
         }
     },
@@ -75,6 +87,92 @@
                     "handler": "proxy",
                     "hidden": false,
                     "positionals": [],
+                    "encoding": "json"
+                }
+            ],
+            "hooks": [],
+            "scaffolds": [],
+            "networks": [],
+            "sandboxes": []
+        },
+        {
+            "alias": "flextesa",
+            "name": "@taqueria/plugin-flextesa",
+            "schema": "1.0",
+            "version": "0.1",
+            "tasks": [
+                {
+                    "task": {
+                        "value": "start sandbox"
+                    },
+                    "command": {
+                        "value": "start sandbox [sandboxName]"
+                    },
+                    "aliases": [
+                        {
+                            "value": "start flextesa"
+                        }
+                    ],
+                    "description": "Starts a flextesa sandbox",
+                    "options": [],
+                    "handler": "proxy",
+                    "hidden": false,
+                    "positionals": [
+                        {
+                            "placeholder": {
+                                "value": "sandboxName"
+                            },
+                            "description": "The name of the sandbox to start"
+                        }
+                    ],
+                    "encoding": "none"
+                },
+                {
+                    "task": {
+                        "value": "stop sandbox"
+                    },
+                    "command": {
+                        "value": "stop sandbox [sandboxName]"
+                    },
+                    "aliases": [
+                        {
+                            "value": "stop flextesa"
+                        }
+                    ],
+                    "description": "Stops a flextesa sandbox",
+                    "options": [],
+                    "handler": "proxy",
+                    "hidden": false,
+                    "positionals": [
+                        {
+                            "placeholder": {
+                                "value": "sandboxName"
+                            },
+                            "description": "The name of the sandbox to stop"
+                        }
+                    ],
+                    "encoding": "none"
+                },
+                {
+                    "task": {
+                        "value": "list accounts"
+                    },
+                    "command": {
+                        "value": "list accounts <sandboxName>"
+                    },
+                    "aliases": [],
+                    "description": "List the balances of all sandbox accounts",
+                    "options": [],
+                    "handler": "proxy",
+                    "hidden": false,
+                    "positionals": [
+                        {
+                            "placeholder": {
+                                "value": "sandboxName"
+                            },
+                            "description": "The name of the sandbox to use"
+                        }
+                    ],
                     "encoding": "json"
                 }
             ],
